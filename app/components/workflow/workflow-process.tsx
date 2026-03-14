@@ -44,7 +44,7 @@ const WorkflowProcessItem = ({
   return (
     <div
       className={cn(
-        'mb-2 rounded-xl border-[0.5px] border-black/[0.08]',
+        'workflow-process-panel mb-2 rounded-xl border-[0.5px] border-black/[0.08]',
         collapse ? 'py-[7px]' : hideInfo ? 'pt-2 pb-1' : 'py-2',
         collapse && (!grayBg ? 'bg-white' : 'bg-gray-50'),
         hideInfo ? 'mx-[-8px] px-1' : 'w-full px-3',

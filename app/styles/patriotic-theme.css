@@ -1,0 +1,267 @@
+/* Patriotic Theme - 爱国主题 */
+/* 核心色彩变量 */
+:root {
+  --bg-app-dark: #2b0b0b;
+  --bg-app-light: #520f0f;
+  --color-primary: #de2910;
+  --color-accent: #ffd700;
+  --text-gold: #fcc200;
+  --border-gold: #b8860b;
+  --bg-base: #2b0b0b;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.9);
+}
+
+/* 主布局 */
+.patriotic-app {
+  --bg-base: var(--bg-app-dark);
+  --text-primary: var(--text-primary);
+  min-height: 100vh;
+  background: linear-gradient(180deg, var(--bg-app-dark) 0%, var(--bg-app-light) 100%);
+  font-family: "Microsoft YaHei", "微软雅黑", Inter, system-ui, sans-serif;
+}
+
+/* 聊天整体 */
+.patriotic-chat {
+  min-height: 100vh;
+  background: linear-gradient(180deg, var(--bg-app-dark) 0%, var(--bg-app-light) 100%);
+}
+
+.patriotic-chat ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.patriotic-chat ::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+}
+
+.patriotic-chat ::-webkit-scrollbar-thumb {
+  background: var(--border-gold);
+  border-radius: 3px;
+}
+
+/* 会话列表侧边栏 */
+.patriotic-chat-sessions {
+  background: rgba(43, 11, 11, 0.95) !important;
+  border-right: 1px solid var(--border-gold) !important;
+  color: var(--text-primary);
+}
+
+.patriotic-chat-sessions .patriotic-new-chat-btn {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  color: #fff;
+  border: 1px solid var(--border-gold);
+}
+
+.patriotic-chat-sessions .patriotic-new-chat-btn:hover {
+  opacity: 0.9;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.3);
+}
+
+.patriotic-chat-sessions .patriotic-session-item {
+  color: var(--text-secondary);
+}
+
+.patriotic-chat-sessions .patriotic-session-item:hover {
+  background: rgba(222, 41, 16, 0.2) !important;
+  color: var(--text-gold);
+}
+
+.patriotic-chat-sessions .patriotic-session-item.current {
+  background: rgba(255, 200, 0, 0.15) !important;
+  color: var(--text-gold);
+  border-left: 2px solid var(--color-accent);
+}
+
+/* 主对话区 */
+.patriotic-chat-center {
+  background: rgba(82, 15, 15, 0.4);
+  color: var(--text-primary);
+}
+
+/* 设置面板 / 欢迎区 */
+.patriotic-chat-settings {
+  color: var(--text-primary);
+}
+
+/* 金色标题 */
+.section-title {
+  color: var(--text-gold);
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(252, 194, 0, 0.3);
+}
+
+/* 卡片样式 */
+.patriotic-card {
+  background: rgba(82, 15, 15, 0.6);
+  border: 1px solid var(--border-gold);
+  border-radius: 12px;
+  color: var(--text-primary);
+}
+
+/* 主按钮红金渐变 */
+.patriotic-primary-btn {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent)) !important;
+  color: #1a1a1a !important;
+  border: 1px solid var(--border-gold) !important;
+  font-weight: 600;
+}
+
+.patriotic-primary-btn:hover {
+  opacity: 0.95;
+  box-shadow: 0 0 16px rgba(255, 215, 0, 0.4) !important;
+}
+
+/* 次要按钮 */
+.patriotic-chat-settings button:not(.patriotic-primary-btn) {
+  border-color: var(--border-gold) !important;
+  color: var(--text-gold) !important;
+}
+
+.patriotic-chat-settings button:not(.patriotic-primary-btn):hover {
+  background: rgba(255, 200, 0, 0.1) !important;
+}
+
+/* 输入框金色边框 */
+.patriotic-input {
+  background: rgba(43, 11, 11, 0.8);
+  border: 1px solid var(--border-gold);
+  color: var(--text-primary);
+}
+
+.patriotic-input:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 8px rgba(255, 200, 0, 0.2);
+}
+
+/* 聊天输入框 */
+.patriotic-chat-input-wrap {
+  position: relative;
+  background: rgba(82, 15, 15, 0.8) !important;
+  border: 1.5px solid var(--border-gold) !important;
+  border-radius: 12px;
+}
+
+.patriotic-chat-input-wrap textarea,
+.patriotic-chat-input-wrap .rc-textarea,
+.patriotic-chat-input-wrap textarea.rc-textarea {
+  background: transparent !important;
+  color: #ffffff !important;
+}
+
+.patriotic-chat-input-wrap textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.patriotic-chat-input-wrap .patriotic-count {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: var(--text-gold) !important;
+}
+
+/* 用户问题气泡 */
+.patriotic-chat .patriotic-question-bubble,
+.patriotic-chat .patriotic-question-bubble * {
+  color: #ffffff !important;
+}
+
+.patriotic-chat .patriotic-question-bubble {
+  background: linear-gradient(135deg, var(--color-primary), #c41e14) !important;
+  border: 1px solid var(--border-gold);
+}
+
+/* AI 回答气泡 */
+.patriotic-chat .patriotic-answer-bubble,
+.patriotic-chat .patriotic-answer-bubble * {
+  color: #ffffff !important;
+}
+
+/* Workflow 等浅色背景面板保持深色文字 */
+.patriotic-chat .patriotic-answer-bubble .workflow-process-panel,
+.patriotic-chat .patriotic-answer-bubble .workflow-process-panel * {
+  color: #374151 !important;
+}
+
+.patriotic-chat .patriotic-answer-bubble {
+  background: rgba(82, 15, 15, 0.7) !important;
+  border: 1px solid var(--border-gold);
+}
+
+/* 发送按钮：红金渐变背景 + 白色飞机图标 */
+.patriotic-send-btn {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent)) !important;
+  border-radius: 8px;
+  border: 1px solid var(--border-gold);
+}
+
+.patriotic-send-btn:hover {
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.5) !important;
+}
+
+/* 欢迎标题金渐变 */
+.welcome-title {
+  background: linear-gradient(135deg, var(--text-gold), var(--color-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+/* 欢迎区 / 设置面板 */
+.patriotic-chat-settings .patriotic-card,
+.patriotic-chat-settings [class*="value-panel"],
+.patriotic-chat-settings [class*="var-panel"] {
+  background: rgba(82, 15, 15, 0.6) !important;
+  border: 1px solid var(--border-gold);
+  border-radius: 12px;
+}
+
+.patriotic-chat-settings label,
+.patriotic-chat-settings .section-title {
+  color: var(--text-gold) !important;
+}
+
+.patriotic-chat-settings input,
+.patriotic-chat-settings textarea,
+.patriotic-chat-settings select {
+  background: rgba(43, 11, 11, 0.8) !important;
+  border: 1px solid var(--border-gold) !important;
+  color: var(--text-primary) !important;
+}
+
+.patriotic-chat-settings input::placeholder,
+.patriotic-chat-settings textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.patriotic-chat-settings .header-welcome,
+.patriotic-chat-settings [class*="renderHeader"] {
+  color: var(--text-gold);
+  border-color: var(--border-gold);
+}
+
+/* 主内容区文字 */
+.patriotic-chat-center,
+.patriotic-chat-center * {
+  color: inherit;
+}
+
+.patriotic-chat .prose,
+.patriotic-chat .markdown-body,
+.patriotic-chat [class*="markdown"] {
+  color: var(--text-primary) !important;
+}
+
+.patriotic-chat .prose p,
+.patriotic-chat .markdown-body p,
+.patriotic-chat [class*="markdown"] p,
+.patriotic-chat .markdown-body * {
+  color: inherit !important;
+}
+
+.patriotic-chat .markdown-body {
+  --color-fg-default: var(--text-primary);
+  --color-fg-muted: var(--text-secondary);
+  --color-fg-subtle: rgba(255, 255, 255, 0.7);
+}

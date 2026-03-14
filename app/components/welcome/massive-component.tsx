@@ -14,8 +14,8 @@ export const AppInfoComp: FC<{ siteInfo: AppInfo }> = ({ siteInfo }) => {
   const { t } = useTranslation()
   return (
     <div>
-      <div className='flex items-center py-2 text-xl font-medium text-gray-700 rounded-md'>👏 {t('app.common.welcome')} {siteInfo.title}</div>
-      <p className='text-sm text-gray-500'>{siteInfo.description}</p>
+      <div className='welcome-title flex items-center py-2 text-xl font-medium rounded-md'>👏 {t('app.common.welcome')} {siteInfo.title}</div>
+      <p className='text-sm text-[var(--text-secondary)] opacity-90'>{siteInfo.description}</p>
     </div>
   )
 }
@@ -23,7 +23,7 @@ export const AppInfoComp: FC<{ siteInfo: AppInfo }> = ({ siteInfo }) => {
 export const PromptTemplate: FC<{ html: string }> = ({ html }) => {
   return (
     <div
-      className={' box-border text-sm text-gray-700'}
+      className={' box-border text-sm text-[var(--text-primary)]'}
       dangerouslySetInnerHTML={{ __html: html }}
     ></div>
   )
@@ -45,7 +45,7 @@ export const ChatBtn: FC<{ onClick: () => void, className?: string }> = ({
   return (
     <Button
       type='primary'
-      className={cn(className, `space-x-2 flex items-center ${s.customBtn}`)}
+      className={cn(className, 'patriotic-primary-btn space-x-2 flex items-center', s.customBtn)}
       onClick={onClick}
     >
       <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -61,7 +61,7 @@ export const EditBtn = ({ className, onClick }: { className?: string, onClick: (
 
   return (
     <div
-      className={cn('px-2 flex space-x-1 items-center rounded-md  cursor-pointer', className)}
+      className={cn('px-2 flex space-x-1 items-center rounded-md cursor-pointer text-[var(--text-gold)] hover:text-[var(--color-accent)]', className)}
       onClick={onClick}
     >
       <PencilIcon className='w-3 h-3' />
