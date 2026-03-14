@@ -45,7 +45,6 @@
 /* 会话列表侧边栏 */
 .patriotic-chat-sessions {
   background: rgba(43, 11, 11, 0.95) !important;
-  border-right: 1px solid var(--border-gold) !important;
   color: var(--text-primary);
 }
 

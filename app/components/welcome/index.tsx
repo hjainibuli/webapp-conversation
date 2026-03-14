@@ -81,7 +81,7 @@ const Welcome: FC<IWelcomeProps> = ({
 
   const renderHeader = () => {
     return (
-      <div className='absolute top-0 left-0 right-0 flex items-center justify-between border-b border-[var(--border-gold)] mobile:h-12 tablet:h-16 px-8 bg-[rgba(43,11,11,0.8)] backdrop-blur-sm'>
+      <div className='absolute top-0 left-0 right-0 flex items-center justify-between mobile:h-12 tablet:h-16 px-8 bg-[rgba(43,11,11,0.8)] backdrop-blur-sm'>
         <div className='text-[var(--text-gold)] font-medium'>{conversationName}</div>
       </div>
     )
