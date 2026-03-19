@@ -1,0 +1,45 @@
+# dependencies
+node_modules
+.pnp
+.pnp.js
+.pnp.cjs
+.pnp.loader.mjs
+
+# build output
+.next
+out
+build
+
+# git
+.git
+.gitignore
+
+# env（构建时不拷进去，运行时用 -e 或 --env-file）
+.env
+.env.*
+!.env.example
+
+# misc
+.DS_Store
+.vscode
+*.pem
+*.log
+coverage
+.vercel
+.serena
+
+# 其他包管理器的 lockfile（你项目用 pnpm）
+package-lock.json
+yarn.lock
+.yarn
+.yarnrc.yml
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*

@@ -584,6 +584,9 @@ const Main: FC<IMainProps> = () => {
       },
       onWorkflowFinished: ({ data }) => {
         responseItem.workflowProcess!.status = data.status as WorkflowRunningStatus
+        if (!responseItem.content && data.outputs?.answer) {
+          responseItem.content = data.outputs.answer
+        }
         setChatList(produce(getChatList(), (draft) => {
           const currentIndex = draft.findIndex(item => item.id === responseItem.id)
           draft[currentIndex] = {

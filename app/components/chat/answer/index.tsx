@@ -204,6 +204,9 @@ const Answer: FC<IAnswerProps> = ({
                   : (
                     <StreamdownMarkdown content={content} />
                   ))}
+              {!isAgentMode && getImgs(item.message_files).length > 0 && (
+                <ImageGallery srcs={getImgs(item.message_files).map(file => file.url)} />
+              )}
               {suggestedQuestions.length > 0 && (
                 <div className="mt-3">
                   <div className="flex gap-1 mt-1 flex-wrap">
