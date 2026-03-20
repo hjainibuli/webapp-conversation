@@ -568,17 +568,17 @@ const Main: FC<IMainProps> = () => {
         }))
       },
       onWorkflowStarted: ({ workflow_run_id, task_id }) => {
-        // taskIdRef.current = task_id
         responseItem.workflow_run_id = workflow_run_id
         responseItem.workflowProcess = {
           status: WorkflowRunningStatus.Running,
           tracing: [],
         }
         setChatList(produce(getChatList(), (draft) => {
-          const currentIndex = draft.findIndex(item => item.id === responseItem.id)
-          draft[currentIndex] = {
-            ...draft[currentIndex],
-            ...responseItem,
+          const currentIndex = draft.findIndex(item => item.id === responseItem.id || item.id === placeholderAnswerId)
+          if (currentIndex >= 0) {
+            const merged = { ...draft[currentIndex], ...responseItem }
+            if (draft[currentIndex].id === placeholderAnswerId) { merged.id = placeholderAnswerId }
+            draft[currentIndex] = merged
           }
         }))
       },
@@ -588,20 +588,22 @@ const Main: FC<IMainProps> = () => {
           responseItem.content = data.outputs.answer
         }
         setChatList(produce(getChatList(), (draft) => {
-          const currentIndex = draft.findIndex(item => item.id === responseItem.id)
-          draft[currentIndex] = {
-            ...draft[currentIndex],
-            ...responseItem,
+          const currentIndex = draft.findIndex(item => item.id === responseItem.id || item.id === placeholderAnswerId)
+          if (currentIndex >= 0) {
+            const merged = { ...draft[currentIndex], ...responseItem }
+            if (draft[currentIndex].id === placeholderAnswerId) { merged.id = placeholderAnswerId }
+            draft[currentIndex] = merged
           }
         }))
       },
       onNodeStarted: ({ data }) => {
         responseItem.workflowProcess!.tracing!.push(data as any)
         setChatList(produce(getChatList(), (draft) => {
-          const currentIndex = draft.findIndex(item => item.id === responseItem.id)
-          draft[currentIndex] = {
-            ...draft[currentIndex],
-            ...responseItem,
+          const currentIndex = draft.findIndex(item => item.id === responseItem.id || item.id === placeholderAnswerId)
+          if (currentIndex >= 0) {
+            const merged = { ...draft[currentIndex], ...responseItem }
+            if (draft[currentIndex].id === placeholderAnswerId) { merged.id = placeholderAnswerId }
+            draft[currentIndex] = merged
           }
         }))
       },
@@ -609,10 +611,11 @@ const Main: FC<IMainProps> = () => {
         const currentIndex = responseItem.workflowProcess!.tracing!.findIndex(item => item.node_id === data.node_id)
         responseItem.workflowProcess!.tracing[currentIndex] = data as any
         setChatList(produce(getChatList(), (draft) => {
-          const currentIndex = draft.findIndex(item => item.id === responseItem.id)
-          draft[currentIndex] = {
-            ...draft[currentIndex],
-            ...responseItem,
+          const currentIndex = draft.findIndex(item => item.id === responseItem.id || item.id === placeholderAnswerId)
+          if (currentIndex >= 0) {
+            const merged = { ...draft[currentIndex], ...responseItem }
+            if (draft[currentIndex].id === placeholderAnswerId) { merged.id = placeholderAnswerId }
+            draft[currentIndex] = merged
           }
         }))
       },
