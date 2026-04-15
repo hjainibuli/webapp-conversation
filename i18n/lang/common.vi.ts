@@ -3,6 +3,7 @@ const translation = {
     success: 'Thành công',
     saved: 'Đã lưu',
     create: 'Đã tạo',
+    failed: 'Thất bại',
   },
   operation: {
     confirm: 'Xác nhận',
@@ -17,6 +18,7 @@ const translation = {
     like: 'thích',
     dislike: 'không thích',
     ok: 'OK',
+    delete: 'Xóa',
   },
   imageUploader: {
     uploadFromComputer: 'Tải lên từ máy tính',

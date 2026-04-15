@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import {
   ChatBubbleOvalLeftEllipsisIcon,
   PencilSquareIcon,
+  TrashIcon,
 } from '@heroicons/react/24/outline'
 import { ChatBubbleOvalLeftEllipsisIcon as ChatBubbleOvalLeftEllipsisSolidIcon } from '@heroicons/react/24/solid'
 import Button from '@/app/components/base/button'
@@ -20,12 +21,14 @@ export interface ISidebarProps {
   currentId: string
   onCurrentIdChange: (id: string) => void
   list: ConversationItem[]
+  onDelete?: (id: string) => void
 }
 
 const Sidebar: FC<ISidebarProps> = ({
   currentId,
   onCurrentIdChange,
   list,
+  onDelete,
 }) => {
   const { t } = useTranslation()
   return (
@@ -64,14 +67,23 @@ const Sidebar: FC<ISidebarProps> = ({
                 )}
                 aria-hidden="true"
               />
-              {item.name}
+              <span className="flex-1 truncate">{item.name}</span>
+              {onDelete && item.id !== '-1' && (
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    onDelete(item.id)
+                  }}
+                  className="opacity-0 group-hover:opacity-100 ml-1 p-1 rounded hover:bg-red-100 text-gray-400 hover:text-red-500 transition-opacity"
+                  title={t('common.operation.delete')}
+                >
+                  <TrashIcon className="h-4 w-4" />
+                </button>
+              )}
             </div>
           )
         })}
       </nav>
-      {/* <a className="flex flex-shrink-0 p-4" href="https://langgenius.ai/" target="_blank">
-        <Card><div className="flex flex-row items-center"><ChatBubbleOvalLeftEllipsisSolidIcon className="text-primary-600 h-6 w-6 mr-2" /><span>LangGenius</span></div></Card>
-      </a> */}
     </div>
   )
 }

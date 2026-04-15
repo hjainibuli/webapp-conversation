@@ -8,7 +8,7 @@ import useConversation from '@/hooks/use-conversation'
 import Toast from '@/app/components/base/toast'
 import Sidebar from '@/app/components/sidebar'
 import ConfigSence from '@/app/components/config-scence'
-import { fetchAppParams, fetchChatList, fetchConversations, generationConversationName, sendChatMessage, updateFeedback } from '@/service'
+import { deleteConversation, fetchAppParams, fetchChatList, fetchConversations, generationConversationName, sendChatMessage, updateFeedback } from '@/service'
 import type { ChatItem, ConversationItem, Feedbacktype, PromptConfig, VisionFile, VisionSettings } from '@/types/app'
 import type { FileUpload } from '@/app/components/base/file-uploader-in-attachment/types'
 import { Resolution, TransferMethod, WorkflowRunningStatus } from '@/types/app'
@@ -622,6 +622,23 @@ const Main: FC<IMainProps> = () => {
     })
   }
 
+  const handleDeleteConversation = async (id: string) => {
+    try {
+      await deleteConversation(id)
+      const newList = conversationList.filter(item => item.id !== id)
+      setConversationList(newList)
+      if (currConversationId === id) {
+        const next = newList.find(item => item.id !== '-1')
+        if (next) { handleConversationIdChange(next.id) }
+        else { handleConversationIdChange('-1') }
+      }
+      notify({ type: 'success', message: t('common.api.success') })
+    }
+    catch {
+      notify({ type: 'error', message: t('common.api.failed') })
+    }
+  }
+
   const handleFeedback = async (messageId: string, feedback: Feedbacktype) => {
     await updateFeedback({ url: `/messages/${messageId}/feedbacks`, body: { rating: feedback.rating } })
     const newChatList = chatList.map((item) => {
@@ -644,6 +661,7 @@ const Main: FC<IMainProps> = () => {
         list={conversationList}
         onCurrentIdChange={handleConversationIdChange}
         currentId={currConversationId}
+        onDelete={handleDeleteConversation}
       />
     )
   }

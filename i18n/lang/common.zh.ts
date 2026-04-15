@@ -3,6 +3,7 @@ const translation = {
     success: '成功',
     saved: '已保存',
     create: '已创建',
+    failed: '失败',
   },
   operation: {
     confirm: '确认',
@@ -17,6 +18,7 @@ const translation = {
     like: '赞同',
     dislike: '反对',
     ok: '好的',
+    delete: '删除',
   },
   imageUploader: {
     uploadFromComputer: '从本地上传',

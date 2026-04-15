@@ -3,6 +3,7 @@ const translation = {
     success: 'Success',
     saved: 'Saved',
     create: 'Created',
+    failed: 'Failed',
   },
   operation: {
     confirm: 'Confirm',
@@ -17,6 +18,7 @@ const translation = {
     like: 'like',
     dislike: 'dislike',
     ok: 'OK',
+    delete: 'Delete',
   },
   imageUploader: {
     uploadFromComputer: 'Upload from Computer',

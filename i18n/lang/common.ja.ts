@@ -3,6 +3,7 @@ const translation = {
     success: '成功',
     saved: '保存しました',
     create: '作成しました',
+    failed: '失敗',
   },
   operation: {
     confirm: '確認',
@@ -17,6 +18,7 @@ const translation = {
     like: 'いいね',
     dislike: 'よくないね',
     ok: 'OK',
+    delete: '削除',
   },
   imageUploader: {
     uploadFromComputer: 'コンピューターからアップロード',
